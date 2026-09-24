@@ -1,0 +1,130 @@
+# Week 4 – Spatial Analysis
+
+## Project
+**Healthcare Accessibility in Lahore**
+
+## Spatial Question
+
+Which areas of Lahore are more than 5 km from a mapped healthcare facility?
+
+## Study Area
+
+The study area is Lahore District, Punjab, Pakistan.
+
+The Lahore District boundary was obtained from DIVA-GIS and filtered from the Pakistan administrative boundary dataset.
+
+## Data Used
+
+### 1. Lahore District Boundary
+
+- Source: DIVA-GIS
+- Geometry: Polygon
+- CRS used for analysis: EPSG:32643 – WGS 84 / UTM zone 43N
+- Total Lahore area: approximately **1,843.67 km²**
+
+### 2. Healthcare Facilities
+
+- Source: OpenStreetMap
+- Retrieved using QuickOSM in QGIS
+- Geometry: Point
+- Number of mapped healthcare features: **185**
+- CRS used for analysis: EPSG:32643 – WGS 84 / UTM zone 43N
+
+## Spatial Analysis Workflow
+
+The analysis was carried out in QGIS using the following workflow:
+
+**Healthcare points → 5 km buffer → Clip to Lahore → Difference from Lahore boundary**
+
+### Step 1: Healthcare Facility Buffer
+
+A **5 km buffer** was created around the mapped healthcare facilities.
+
+The buffer represents areas within approximately 5 km of at least one mapped healthcare facility.
+
+The buffers were dissolved into a single coverage area.
+
+### Step 2: Clip to Lahore
+
+The dissolved 5 km healthcare buffer was clipped using the Lahore District boundary.
+
+This ensured that the accessibility analysis was limited to the study area.
+
+### Step 3: Difference Analysis
+
+The 5 km healthcare coverage area was removed from the Lahore District boundary using the Difference operation.
+
+The resulting layer represents areas of Lahore that are **more than 5 km from the mapped healthcare facilities** used in this analysis.
+
+## Results
+
+### Total Lahore Area
+
+**1,843.67 km²**
+
+### Area Outside the 5 km Healthcare Buffer
+
+**892.18 km²**
+
+### Percentage Outside the 5 km Buffer
+
+**48.39%**
+
+### Percentage Within the 5 km Buffer
+
+**51.61%**
+
+The result is a MultiPolygon feature, meaning the areas outside the 5 km buffer can consist of several disconnected areas rather than one continuous area.
+
+## Interpretation
+
+Approximately **48.39% of Lahore District** is outside the 5 km straight-line coverage area of the mapped healthcare facilities used in this analysis.
+
+This identifies areas that may have lower geographic accessibility to the mapped healthcare facilities based on the 5 km distance threshold.
+
+## Important Limitations
+
+This analysis should not be interpreted as showing that 48.39% of Lahore has no healthcare access.
+
+The analysis is based on:
+
+1. Healthcare facilities mapped in the OpenStreetMap dataset used for this project.
+2. A 5 km straight-line distance threshold.
+3. The Lahore District administrative boundary.
+
+Some healthcare facilities may not be mapped in OpenStreetMap, and therefore the dataset may not represent every healthcare facility in Lahore.
+
+The analysis also uses straight-line distance rather than road-network distance. Actual travel distance may be greater because roads do not follow straight lines and may be affected by the road network.
+
+## Tools
+
+- QGIS
+- QuickOSM
+- OpenStreetMap
+- DIVA-GIS
+
+## Spatial Operations Practised
+
+This analysis provided practice with:
+
+- Buffer
+- Clip
+- Difference
+- Area calculation
+- Working with projected CRS
+- Interpreting MultiPolygon results
+- Using spatial relationships to answer a geographic question
+
+## Next Steps
+
+A possible extension is to perform a road-network analysis using OpenStreetMap road data.
+
+Instead of measuring straight-line distance, the extended analysis could examine accessibility using distance along the road network.
+
+The current 5 km straight-line analysis will remain the baseline result for comparison.
+
+## Status
+
+Week 4 spatial analysis completed.
+
+The project currently has a baseline accessibility analysis identifying areas more than 5 km from mapped healthcare facilities in Lahore.
