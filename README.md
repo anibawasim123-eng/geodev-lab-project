@@ -58,6 +58,6 @@ The project will later be developed into an interactive WebGIS application showi
 **Month 1 – Week 1:** Project question, study area, and initial datasets identified.
 
 
-##Month 2 - preparation of environment and early python
+**Month 2 - preparation of environment and early python
 
 -Week 5: I setup python and vs code and terminal and runs the hello.py
