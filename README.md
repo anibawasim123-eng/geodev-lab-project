@@ -61,5 +61,5 @@ The project will later be developed into an interactive WebGIS application showi
 **Month 2** - preparation of environment and early python
 
 - Week 5: I setup python and vs code and terminal and runs the hello.py
-
 - Week 6: set up the project with uv and add pandas. Main.py print the pandas version
+- Week 7: Write programm to calulate the area into hectares and use condition to cell the qualitative range of small or large.
